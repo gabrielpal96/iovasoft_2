@@ -1,0 +1,50 @@
+<main>
+    <div class="container body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" th:action="@{/login}" method="post">
+                <fieldset>
+                    <legend>Login</legend>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="user_email">Email</label>
+                        <div class="col-sm-4">
+                            <input type="email" class="form-control" id="user_email" placeholder="Email" name="email"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="password">Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" id="password" placeholder="Password" name="password"/>
+                        </div>
+                    </div>
+
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn btn-default" th:href="@{/}">Cancel</a>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+            <!--<form th:action="@{/login/facebook}" method="POST">-->
+                <!--<input type="hidden" name="scope" value="public_profile" />-->
+                <!--<input type="submit" value="Login using Facebook"/>-->
+            <!--</form>-->
+
+            <!--<div class="social-login">-->
+                <!--<a href="#" onclick="document.getElementById('fbSignIn').submit();">-->
+                    <!--<i class="fa fa-facebook fa-lg"></i> Login in with facebook-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<form id="fbSignIn" th:action="@{/signin/facebook}" method="POST">-->
+            <!--</form>-->
+            <form name="fb_signin" id="fb_signin" th:action="@{/signin/facebook}" method="POST">
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}"></input>
+                <input type="hidden" name="scope" value="publish_stream,user_photos,offline_access"></input>
+                <button type="submit"><img th:src="@{/social/facebook/sign-in-with-facebook.png}"></img></button>
+            </form>
+        </div>
+    </div>
+</main>

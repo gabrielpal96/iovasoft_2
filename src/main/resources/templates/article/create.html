@@ -1,0 +1,131 @@
+<main>
+    <div class="container body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" th:action="@{/article/create}" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>New Post</legend>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_title">Заглавие</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_title" placeholder="Article Title"
+                                   name="title"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="category_modelPhone">Марка</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="category_modelPhone" name="modelPhoneId">
+                                <option th:each="modelPhone : ${modelPhone}" th:value="${modelPhone.id}" th:text="${modelPhone.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_category">Модел</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="article_category" name="categoryId">
+                                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_content">Описание</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="6" id="article_content" name="content"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_price">Цена</label>
+                        <div class="col-sm-6">
+                            <input type="Double" class="form-control" id="article_price" placeholder="Price" name="Price"/>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="city">Регион</label>
+                        <div class="col-sm-6">
+                    <select class="form-control" id="city" name="city">
+                        <option value="">всички региони
+                        </option><option value="Благоевград">Благоевград
+                    </option><option value="Бургас">Бургас
+                    </option><option value="Варна">Варна
+                    </option><option value="Велико Търново">Велико Търново
+                    </option><option value="Видин">Видин
+                    </option><option value="Враца">Враца
+                    </option><option value="Габрово">Габрово
+                    </option><option value="Добрич">Добрич
+                    </option><option value="Дупница">Дупница
+                    </option><option value="Кърджали">Кърджали
+                    </option><option value="Кюстендил">Кюстендил
+                    </option><option value="Ловеч">Ловеч
+                    </option><option value="Монтана">Монтана
+                    </option><option value="Пазарджик">Пазарджик
+                    </option><option value="Перник">Перник
+                    </option><option value="Плевен">Плевен
+                    </option><option value="Пловдив">Пловдив
+                    </option><option value="Разград">Разград
+                    </option><option value="Русе">Русе
+                    </option><option value="Силистра">Силистра
+                    </option><option value="Сливен">Сливен
+                    </option><option value="Смолян">Смолян
+                    </option><option value="София">София
+                    </option><option value="Стара Загора">Стара Загора
+                    </option><option value="Търговище">Търговище
+                    </option><option value="Хасково">Хасково
+                    </option><option value="Шумен">Шумен
+                    </option><option value="Ямбол">Ямбол
+                    <!--</option><option value="Извън страната">Извън страната-->
+
+                    </option></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="gsm">GSM</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="gsm" placeholder="gsm"
+                                   name="gsm"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="coverPhoto">Cover Photo</label>
+                        <div class="col-sm-4">
+                            <input type="file" class="form-control" id="coverPhoto" placeholder="Password" name="coverPhoto"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="picture1">Picture upload</label>
+                        <div class="col-sm-4">
+                            <input type="file" class="form-control" id="picture1" placeholder="Password" name="pictures"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="picture2">Picture upload</label>
+                        <div class="col-sm-4">
+                            <input type="file" class="form-control" id="picture2" placeholder="Password" name="pictures"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="picture2">Picture upload</label>
+                        <div class="col-sm-4">
+                            <input type="file" class="form-control" id="picture3" placeholder="Password" name="pictures"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+
+
+                            <a class="btn btn-default" th:href="@{/}">Cancel</a>
+                            <input type="submit" class="btn btn-primary" value="Submit"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</main>
